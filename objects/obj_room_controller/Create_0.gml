@@ -27,4 +27,6 @@ zoom = function (){
    camera_set_view_size(cam, cam_w * zoom_level, cam_h * zoom_level);
 }
 #endregion
-* /
+*/
+
+

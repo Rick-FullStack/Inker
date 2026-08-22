@@ -48,6 +48,7 @@
   "resources":[
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_room_controller","path":"objects/obj_room_controller/obj_room_controller.yy",},},
+    {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spr_bg_placeholder","path":"sprites/spr_bg_placeholder/spr_bg_placeholder.yy",},},
     {"id":{"name":"spr_big_window","path":"sprites/spr_big_window/spr_big_window.yy",},},
@@ -90,6 +91,7 @@
     {"id":{"name":"spr_sign","path":"sprites/spr_sign/spr_sign.yy",},},
     {"id":{"name":"spr_spikes","path":"sprites/spr_spikes/spr_spikes.yy",},},
     {"id":{"name":"spr_torch","path":"sprites/spr_torch/spr_torch.yy",},},
+    {"id":{"name":"spr_wall_placeholder","path":"sprites/spr_wall_placeholder/spr_wall_placeholder.yy",},},
     {"id":{"name":"Tileset","path":"sprites/Tileset/Tileset.yy",},},
   ],
   "resourceType":"GMProject",
