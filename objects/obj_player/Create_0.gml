@@ -5,10 +5,7 @@ velv        = 0;
 max_velh    = 1;
 max_velv    = 4;
 grav        = 0.2;
-
-//Test Vars
-player_x = obj_player.x
-player_y = obj_player.y
+jumps       = 2;
 
 //Level Vars
 ground = false;
@@ -27,7 +24,7 @@ get_input = function()
 {
     right = keyboard_check(vk_right) or keyboard_check(ord("D"));
     left = keyboard_check(vk_left) or keyboard_check(ord("A"));
-    jump =  keyboard_check(vk_space) or keyboard_check(ord("K"));
+    jump =  keyboard_check_pressed(vk_space) or keyboard_check_pressed(ord("K"));
 };
 
 //Moveset
@@ -41,6 +38,22 @@ moveset = function()
     if(!ground)
     {
         velv += grav;
+        if (jump && jumps >= 1)
+        {
+            jumps --;
+            velv = 0;
+            velv -= max_velv;
+        }
+    }
+    else
+    {
+    	velv = 0;
+        jumps = 2;
+        if (jump)
+        {
+            jumps --;
+            velv -= max_velv;
+        }
     }
     
     //Using horizontal "Move and Collide"
@@ -57,16 +70,35 @@ floor_check = function()
     //show_debug_message(ground)
 };
 
-
 //Player falling restart
 room_check =  function ()
 {
     if (obj_player.y >= room_height)
     {
-        obj_player.x = player_x
-        obj_player.y = player_y
+        obj_player.x = room_height-900
+        obj_player.y = obj_wall.y
         velv = 0
     }
 }
+
+#endregion
+
+
+#region Debug
+show_debug_overlay(1);
+
+var _ref_grav = ref_create(id, "grav")
+var _ref_velv = ref_create(id, "velv")
+var _ref_max_velv = ref_create(id, "max_velv")
+
+//velv info
+dbg_watch(_ref_velv, "velv");
+
+//Changing velv value
+dbg_slider(_ref_max_velv, 0, 10, "Max velv", .1)
+
+
+//Changing velv value
+dbg_slider(_ref_grav, 0, 10, "Gravity", .1)
 
 #endregion
