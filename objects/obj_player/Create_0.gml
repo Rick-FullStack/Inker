@@ -34,25 +34,26 @@ moveset = function()
     velh = (right - left) * max_velh;
     
     //Applying gravity
-    //If it's touching the ground, apply gravity on "velv"
-    if(!ground)
+    if(!ground)                         //If isn't touching the ground,
     {
-        velv += grav;
-        if (jump && jumps >= 1)
+        velv += grav;                       //apply gravity on "velv" to jump.
+        if (jump && jumps >= 1)             //If jump button is pressed and nº of jumps is bigger than 1,
         {
-            jumps --;
-            velv = 0;
-            velv -= max_velv;
+            jumps --;                           //-1 jump,
+            velv = 0;                           //stabilize velv,
+            velv -= max_velv;                   //jump again.
         }
     }
-    else
+    else                                //Else,
     {
-    	velv = 0;
-        jumps = 2;
-        if (jump)
+    	velv = 0;                       //stabilize velv,
+        x = round(x)
+        y = round(y)
+        jumps = 2;                      //jumps count is 2
+        if (jump)                       //If jump button is pressed,
         {
-            jumps --;
-            velv -= max_velv;
+            jumps --;                   //-1 jump,
+            velv -= max_velv;           //jump.
         }
     }
     
